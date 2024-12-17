@@ -45,10 +45,10 @@ Future<dynamic> getProductById(String id) async{
   }
 }
 
-Future<List<dynamic>> getfourProducts() async{
+Future<List<dynamic>> getTwoProducts() async{
   print("this are four products" );
    try{
-     var response = await dio.get("?limit=4");
+     var response = await dio.get("?limit=2");
      if( response.statusCode == 200){
        print(response.data);
        return response.data;
