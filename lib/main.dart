@@ -19,14 +19,14 @@ class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: BottomNavigationBar(items: ),
+      // bottomNavigationBar: BottomNavigationBar(items:hashCode ),
       body: Column(
         children: [
           Stack(
 
             children: [
               Container(
-                  height: 550,
+                  height: 530,
                   width: Get.width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -48,12 +48,17 @@ class ProductPage extends StatelessWidget {
                         Container(
                           width: 200,
                           height: 40,
-                          child: FloatingActionButton(
-                            backgroundColor: Colors.orangeAccent,
-                            onPressed: () {},
-                            child: Text('Go to Catalogue',
-                              style: GoogleFonts.stixTwoText(
-                                  fontWeight: FontWeight.w800, fontSize: 25),),
+                          child: InkWell(
+                            onTap: (){
+                              Get.to(Allproducts());
+                            },
+                            child: FloatingActionButton(
+                              backgroundColor: Colors.orangeAccent,
+                              onPressed: () {},
+                              child: Text('Go to Catalogue',
+                                style: GoogleFonts.stixTwoText(
+                                    fontWeight: FontWeight.w800, fontSize: 25),),
+                            ),
                           ),
                         ),
                       ])
@@ -94,6 +99,7 @@ class ProductPage extends StatelessWidget {
 
           ),
           Container(
+            color: Colors.white,
             child: FutureBuilder(
               future: getTwoProducts(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
