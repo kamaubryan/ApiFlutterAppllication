@@ -19,7 +19,18 @@ class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: BottomNavigationBar(items:hashCode ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: [
+      //     BottomNavigationBarItem(
+      //       icon: SizedBox(child: Icon(Icons.home),)
+      //     ),
+      //
+      //     BottomNavigationBarItem(
+      //         icon: SizedBox(child: Icon(Icons.home),)
+      //     )
+      //   ],
+      //
+      // ),
       body: Column(
         children: [
           Stack(
@@ -50,7 +61,7 @@ class ProductPage extends StatelessWidget {
                           height: 40,
                           child: InkWell(
                             onTap: (){
-                              Get.to(Allproducts());
+                              Get.to(DisplayAllProducts());
                             },
                             child: FloatingActionButton(
                               backgroundColor: Colors.orangeAccent,
@@ -85,7 +96,7 @@ class ProductPage extends StatelessWidget {
                     fontSize: 40, fontWeight: FontWeight.w500),),
                 InkWell(
                   onTap: () {
-                    Get.to(Allproducts());
+                    Get.to(DisplayAllProducts());
                   },
                   child: Text("View all", style: GoogleFonts.sail(
                       fontSize: 22
