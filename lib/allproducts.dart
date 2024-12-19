@@ -8,22 +8,24 @@ class DisplayAllProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [ Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            paddingOnly(top: 20, bottom: 15),
-            Icon(Icons.draw_outlined),
-            SizedBox(
-              child:
-              Icon(Icons.shopping_basket),
-            ),
-            SizedBox(
-              child:
-              Icon(Icons.contact_emergency),
-            )
-          ],
-        )],
+        leading: Icon(Icons.menu,),
+        actions: [
+
+          SizedBox(
+            child:
+            Icon(Icons.delete_outline_outlined),
+          ),
+          SizedBox(width: 10,),
+          SizedBox(
+            child:
+            Icon(Icons.contact_emergency,size: 40,),
+          )
+        ],
+        bottom: 
+        PreferredSize(preferredSize: Size(Get.width, height), child: child)
+        ,
       ),
+      
     );
   }
 }
