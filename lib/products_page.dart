@@ -12,7 +12,7 @@ class ProductsPage extends GetView {
         title: const Text("Products"),
       ),
       body: FutureBuilder(
-          future: getProducts(),//pass the future function here
+          future: fetchAllProducts(),//pass the future function here
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {//handles whats displayed during the call. in this case its a circular progress indicator
               return const Center(child: CircularProgressIndicator());

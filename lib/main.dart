@@ -112,7 +112,7 @@ class ProductPage extends StatelessWidget {
           Container(
             color: Colors.white,
             child: FutureBuilder(
-              future: getTwoProducts(),
+              future: fetchTwoProducts(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return CircularProgressIndicator();

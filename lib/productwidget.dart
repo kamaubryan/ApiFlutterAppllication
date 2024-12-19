@@ -45,9 +45,9 @@ class AllProducts extends StatelessWidget {
             child: Image.network(image ?? ""),
 
           ),
-          Text(id??"", style: TextStyle( fontSize: 17, fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
-          Text(title??"", style: TextStyle( fontSize: 17, fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
-          Text(price??"", style: TextStyle( fontSize: 17, fontWeight: FontWeight.w600),textAlign: TextAlign.center,)
+          Text(id?? "", style: TextStyle( fontSize: 17, fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
+          Text(title?? "", style: TextStyle( fontSize: 17, fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
+          Text(price?? "", style: TextStyle( fontSize: 17, fontWeight: FontWeight.w600),textAlign: TextAlign.center,)
 
         ],
       ),

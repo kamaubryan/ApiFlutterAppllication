@@ -1,66 +1,50 @@
 import 'package:dio/dio.dart';
 
 final options = BaseOptions(
-    baseUrl: "https://fakestoreapi.com/products",// The base URL for all API requests.
-    connectTimeout: Duration(seconds: 30) // Timeout duration for connecting to the server.
+  baseUrl: "https://fakestoreapi.com/products",
+  connectTimeout: Duration(seconds: 30),
 );
 
-// Initializing a Dio instance with predefined options.
-Dio dio = Dio(
-    options
-);
+final Dio dio = Dio(options);
 
-// Function to fetch a list of products from the API.
-Future<List<dynamic>> getProducts() async{
-  try{
+Future<List<dynamic>> fetchAllProducts() async {
+  try {
     var response = await dio.get("");
-    if(response.statusCode==200){
-      return response.data;  // Returning the list of products if the server responded with a status code of 200 (OK)
-    }else{
-      throw Exception('Failed to fetch products. Status code: ${response.statusCode}'); // Throwing an exception if the response status is not OK.
-    }
-  }catch(e){
-    if(e is DioException){
-      print(e.message);
+    return response.data;
+  } catch (e) {
+    if (e is DioException) {
+      print("DioException: ${e.message}");
+    } else {
+      print("Error: $e");
     }
     rethrow;
   }
 }
 
-Future<dynamic> getProductById(String id) async{
-  print("this is id  $id");
-  try{
+Future<dynamic> fetchProductById(String id) async {
+  try {
     var response = await dio.get("/$id");
-    if(response.statusCode ==200){
-      return response.data;
-    }else{
-      throw Exception('Failed to fetch products. Status code: ${response.statusCode}');
-    }
-  }catch(e){
-    print("error from getProductById $e");
-    if(e is DioException){
-      print(e.message);
+    return response.data;
+  } catch (e) {
+    if (e is DioException) {
+      print("DioException: ${e.message}");
+    } else {
+      print("Error: $e");
     }
     rethrow;
   }
 }
 
-Future<List<dynamic>> getTwoProducts() async{
-  print("this are four products" );
-   try{
-     var response = await dio.get("?limit=2");
-     if( response.statusCode == 200){
-       print(response.data);
-       return response.data;
-     }
-     else{
-       throw Exception('Failed to fetch products Status code : ${response.statusCode}');
-     }
-
-   } catch(e){
-     if(e is DioException){
-       print(e.message);
-     }
-     rethrow;
-   }
+Future<List<dynamic>> fetchTwoProducts() async {
+  try {
+    var response = await dio.get("?limit=2");
+    return response.data;
+  } catch (e) {
+    if (e is DioException) {
+      print("DioException: ${e.message}");
+    } else {
+      print("Error: $e");
+    }
+    rethrow;
+  }
 }
